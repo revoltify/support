@@ -13,6 +13,9 @@ readonly class Form
      */
     private array $fields;
 
+    /**
+     * @param  list<mixed>  $fields
+     */
     public function __construct(array $fields = [])
     {
         $validFields = [];
@@ -24,6 +27,9 @@ readonly class Form
         $this->fields = $validFields;
     }
 
+    /**
+     * @param  list<mixed>  $fields
+     */
     public static function make(array $fields = []): self
     {
         return new self($fields);
@@ -76,7 +82,7 @@ readonly class Form
     /**
      * Convert form to array
      *
-     * @return array<string, array>
+     * @return array<string, array<string, mixed>>
      */
     public function toArray(): array
     {

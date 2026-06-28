@@ -12,6 +12,7 @@ class Grid implements FormComponent
 
     private int $columns;
 
+    /** @var list<FormComponent> */
     private array $schema = [];
 
     public static function make(string $key, int $columns = 2): self
@@ -30,6 +31,9 @@ class Grid implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  list<FormComponent>  $schema
+     */
     public function schema(array $schema): self
     {
         $this->schema = $schema;
@@ -52,6 +56,9 @@ class Grid implements FormComponent
         return 'grid';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [

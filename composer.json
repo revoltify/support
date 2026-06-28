@@ -1,0 +1,43 @@
+{
+    "name": "revoltify/support",
+    "description": "Core support utilities for Revoltify packages",
+    "type": "library",
+    "keywords": [
+        "revoltify",
+        "support"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Revoltify",
+            "email": "support@revoltify.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.25",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Revoltify\\Support\\": "src/"
+        }
+    },
+    "scripts": {
+        "pint": "./vendor/bin/pint",
+        "stan": "./vendor/bin/phpstan analyse",
+        "baseline": "./vendor/bin/phpstan analyse --generate-baseline",
+        "rector": "./vendor/bin/rector"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

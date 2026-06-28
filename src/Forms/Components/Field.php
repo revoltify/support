@@ -332,7 +332,7 @@ class Field implements FormComponent
     public function hintIcon(string $icon, ?string $tooltip = null): self
     {
         $this->hintIcon = $icon;
-        if ($tooltip !== null && $tooltip !== '' && $tooltip !== '0') {
+        if (! in_array($tooltip, [null, '', '0'], true)) {
             $this->tooltip = $tooltip;
         }
 

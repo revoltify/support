@@ -53,6 +53,7 @@ class Field implements FormComponent
     private bool $columnSpanFull = false;
 
     // Validation properties
+    /** @var list<string>|null */
     private ?array $rules = null;
 
     // Visibility properties
@@ -65,6 +66,7 @@ class Field implements FormComponent
     private ?string $dependent = null;
 
     // Select/Radio/Tags properties
+    /** @var array<array-key, string>|null */
     private ?array $options = null;
 
     private bool $multiple = false;
@@ -99,6 +101,7 @@ class Field implements FormComponent
     private ?int $rows = null;
 
     // File upload properties
+    /** @var list<string>|null */
     private ?array $acceptedFileTypes = null;
 
     private ?int $maxSize = null;
@@ -180,6 +183,9 @@ class Field implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  array<array-key, string>  $options
+     */
     public function select(array $options = [], string $value = ''): self
     {
         $this->type = 'options';
@@ -191,6 +197,9 @@ class Field implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  array<array-key, string>  $options
+     */
     public function radio(array $options = []): self
     {
         $this->type = 'radio';
@@ -222,6 +231,9 @@ class Field implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  list<string>  $value
+     */
     public function tags(array $value = []): self
     {
         $this->type = 'tags';
@@ -264,6 +276,9 @@ class Field implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  array<array-key, string>  $options
+     */
     public function options(array $options, string $value = ''): self
     {
         $this->options = $options;
@@ -384,6 +399,9 @@ class Field implements FormComponent
     // Validation Methods
     // ===========================================
 
+    /**
+     * @param  list<string>|string  $rules
+     */
     public function rules(array|string $rules): self
     {
         $this->rules = is_array($rules) ? $rules : [$rules];
@@ -506,6 +524,9 @@ class Field implements FormComponent
     // File Upload Methods
     // ===========================================
 
+    /**
+     * @param  list<string>  $types
+     */
     public function acceptedFileTypes(array $types): self
     {
         $this->acceptedFileTypes = $types;
@@ -610,6 +631,9 @@ class Field implements FormComponent
         return $this->default ?? $this->value;
     }
 
+    /**
+     * @return array<array-key, string>|null
+     */
     public function getOptions(): ?array
     {
         return $this->options;
@@ -619,6 +643,9 @@ class Field implements FormComponent
     // Serialization
     // ===========================================
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [

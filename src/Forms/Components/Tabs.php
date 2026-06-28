@@ -12,6 +12,7 @@ class Tabs implements FormComponent
 
     private ?string $label = null;
 
+    /** @var list<Tab> */
     private array $tabs = [];
 
     private bool $columnSpanFull = false;
@@ -35,6 +36,9 @@ class Tabs implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  list<Tab>  $tabs
+     */
     public function tabs(array $tabs): self
     {
         $this->tabs = $tabs;
@@ -78,6 +82,9 @@ class Tabs implements FormComponent
         return 'tabs';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [

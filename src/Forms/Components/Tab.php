@@ -16,6 +16,7 @@ class Tab implements FormComponent
 
     private ?string $badge = null;
 
+    /** @var list<FormComponent> */
     private array $schema = [];
 
     public static function make(string $key): self
@@ -47,6 +48,9 @@ class Tab implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  list<FormComponent>  $schema
+     */
     public function schema(array $schema): self
     {
         $this->schema = $schema;
@@ -69,6 +73,9 @@ class Tab implements FormComponent
         return 'tab';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [

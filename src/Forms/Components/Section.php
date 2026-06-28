@@ -16,6 +16,7 @@ class Section implements FormComponent
 
     private ?string $icon = null;
 
+    /** @var list<FormComponent> */
     private array $schema = [];
 
     private bool $collapsible = false;
@@ -53,6 +54,9 @@ class Section implements FormComponent
         return $this;
     }
 
+    /**
+     * @param  list<FormComponent>  $schema
+     */
     public function schema(array $schema): self
     {
         $this->schema = $schema;
@@ -96,6 +100,9 @@ class Section implements FormComponent
         return 'section';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [
